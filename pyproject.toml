@@ -1,0 +1,54 @@
+[project]
+name = "python-cicd-kata"
+version = "0.1.0"
+description = "Python project to practice CI/CD concepts"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.115.8",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.1.0",
+    "pyright>=1.1.394",
+    "pytest>=8.3.4",
+    "ruff>=0.9.6",
+]
+
+[tool.pyright]
+strict = ["**/*"]
+
+[tool.ruff]
+line-length = 150
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "D211",
+    "D213",
+    "D100",
+    "D103",
+    "D104",
+    "D107",
+    "TD002",
+    "TD003",
+    "FIX002",
+    "FBT001",
+    "FBT002",
+    "INP001",
+    "D101",
+    "FA100",
+    "FA102",
+    "DTZ001",
+    "T201",
+    "PLR0913",
+    "S608",
+    # Rules cause conflicts when used with the formatter
+    "ISC001",
+    "COM812",
+    "D203",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["D", "S101"]
